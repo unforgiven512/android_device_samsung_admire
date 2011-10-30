@@ -1,7 +1,7 @@
 # mount     fstype  device                  [device2]   [fstype2]   [fsoptions]       [fsoptions2]
 
 /boot       bml     boot
-/recovery   bml     recovery
+/recovery   bml     recoveryonly
 /cache      ext4    /dev/block/stl14        NULL        rfs         NULL              rw,nosuid,nodev,check=no
 /data       ext4    /dev/block/stl13        NULL        rfs         NULL              rw,nosuid,nodev,check=no
 /sdcard     vfat    /dev/block/mmcblk0p1
