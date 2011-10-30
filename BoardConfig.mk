@@ -22,5 +22,16 @@ BOARD_FLASH_BLOCK_SIZE := 131072
 TARGET_PREBUILT_KERNEL := device/samsung/admire/kernel
 
 #BOARD_HAS_NO_SELECT_BUTTON := true
+
+## RECOVERY OPTIONS ##
+
+#TARGET_USERIMAGES_USE_EXT4 := true
+#TARGET_RECOVERY_INITRC := device/samsung/admire/recovery.rc
+BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/samsung/admire/recovery/recovery_ui.c
+#BOARD_USES_BML_OVER_MTD := true
+#BOARD_CUSTOM_BOOTIMG_MK := device/samsung/aries-common/shbootimg.mk
+#TARGET_RECOVERY_PRE_COMMAND := "echo 1 > /cache/.startrecovery; sync;"
+BOARD_HAS_NO_SELECT_BUTTON := true
+
 # Use this flag if the board has a ext4 partition larger than 2gb
 #BOARD_HAS_LARGE_FILESYSTEM := true
