@@ -1,3 +1,9 @@
 #
 # system.prop for admire
 #
+
+rild.libpath=/system/lib/libsec-ril.so
+rild.libargs=-d /dev/smd0
+dalvik.vm.heapsize=24m
+ro.sf.lcd_density=160
+ro.opengles.version=131072

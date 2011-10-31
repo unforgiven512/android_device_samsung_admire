@@ -1,0 +1,122 @@
+# Copyright (c) 2009, Code Aurora Forum.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+#key 1      MENU         WAKE_DROPPED
+#key 2      DPAD_UP    WAKE_DROPPED
+#key 3      L            WAKE_DROPPED
+#key 4      K            WAKE_DROPPED
+#key 5      J            WAKE_DROPPED
+#key 6      H            WAKE_DROPPED
+#key 7      EXPLORER     WAKE_DROPPED
+#key 8      EMPTY    
+#key 9      EMPTY
+#key 10     EMPTY
+key 11     0       WAKE_DROPPED
+#key 12     FOCUS        WAKE_DROPPED
+#key 13     P            WAKE_DROPPED
+key 14     DEL            WAKE_DROPPED
+#key 15     I            WAKE_DROPPED
+key 16     Q            WAKE_DROPPED
+key 17     W        WAKE_DROPPED
+key 18     E
+key 19     R
+key 20     T
+key 21     Y         WAKE_DROPPED
+key 22     U    WAKE_DROPPED
+key 23     I       WAKE_DROPPED
+key 24     O          WAKE_DROPPED
+key 25     P   WAKE_DROPPED
+key 26     SPACE        WAKE_DROPPED
+#key 27     SEARCH       WAKE_DROPPED
+key 28     ENTER
+#key 29     EMPTY
+key 30      A
+key 31     S        WAKE
+key 32     D        WAKE_DROPPED
+key 33     F   WAKE_DROPPED
+key 34     G            WAKE_DROPPED
+key 35     H            WAKE_DROPPED
+key 36     J            WAKE_DROPPED
+key 37     K      WAKE_DROPPED
+key 38    L
+#key 39    EMPTY
+#key 40    EMPTY
+#key 41     EMPTY         WAKE_DROPPED
+#key 42     EMPTY            WAKE_DROPPED
+#key 43     EMPTY            WAKE_DROPPED
+key 44     Z            WAKE_DROPPED
+key 45     X            WAKE_DROPPED
+key 46     C          WAKE_DROPPED
+key 47     V        WAKE_DROPPED
+key 48     B
+key 49     N
+key 50     M
+key 51     COMMA       WAKE_DROPPED
+key 52     PERIOD            WAKE_DROPPED
+#key 53     T            WAKE_DROPPED
+#key 54     R            WAKE_DROPPED
+#key 55     ENVELOPE     WAKE_DROPPED
+#key 56     E            WAKE_DROPPED
+key 57     SPACE       WAKE_DROPPED
+#key 58     EMPTY
+#key 59     EMPTY
+#key 60     EMPTY
+#key 61     EMPTY    WAKE_DROPPED
+#key 62     V            WAKE_DROPPED
+#key 63     C            WAKE_DROPPED
+#key 64     X            WAKE_DROPPED
+#key 65     Q            WAKE_DROPPED
+#key 66     ALT_LEFT     WAKE_DROPPED
+#key 67     VOLUME_DOWN  WAKE_DROPPED
+#key 68     EMPTY
+#key 69     EMPTY
+#key 70     EMPTY
+#key 71     EMPTY
+#key 72     W            WAKE_DROPPED
+#key 73     SHIFT_LEFT   WAKE_DROPPED
+#key 74     SMILY
+#key 75     A            WAKE_DROPPED
+key 103     DPAD_UP      WAKE_DROPPED
+key 108     DPAD_DOWN    WAKE_DROPPED
+key 105     DPAD_LEFT    WAKE_DROPPED
+key 106     DPAD_RIGHT   WAKE_DROPPED
+#key 77     EMPTY
+#key 78     EMPTY
+#key 79     EMPTY
+#key 80     EMPTY
+key 248     DEL     WAKE_DROPPED
+key 249     SHIFT_LEFT     WAKE_DROPPED
+
+# handling for touch-key codes
+key 102     HOME     WAKE
+key 139     MENU     WAKE
+key 158     BACK     WAKE
+key 114     VOLUME_DOWN     WAKE_DROPPED
+key 115     VOLUME_UP     WAKE_DROPPED
+key 116     POWER     WAKE_DROPPED
+key 766     CAMERA     WAKE_DROPPED
+key 528     FOCUS     WAKE_DROPPED
+key 215     AT     WAKE_DROPPED
+key 217     SEARCH   WAKE
+
+# Fake Focus
+key 250     SYMBOL    WAKE_DROPPED
+key 251     ALT_LEFT    WAKE_DROPPED
+key 252	VST_LAUNCH
+#key 252     SPEAKER    WAKE_DROPPED
+#key 254     ZOOM    WAKE_DROPPED
+
+#key 214     QUESTION     WAKE_DROPPED
+key 247     SMILY     WAKE_DROPPED
+# Platform Dump
