@@ -43,7 +43,8 @@ PRODUCT_PACKAGES += \
     copybit.admire \
     gralloc.admire \
     setup_fs \
-    dexpreopt
+    dexpreopt \
+    SamsungServiceMode
 
 # XXX: To be added to above list in time
 # screencap
@@ -71,11 +72,13 @@ PRODUCT_COPY_FILES += \
     frameworks/base/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml \
     frameworks/base/data/etc/android.hardware.camera.autofocus.xml:system/etc/permissions/android.hardware.camera.autofocus.xml \
     frameworks/base/data/etc/android.hardware.telephony.cdma.xml:system/etc/permissions/android.hardware.telephony.cdma.xml \
+    frameworks/base/data/etc/android.hardware.location.xml:system/etc/permissions/android.hardware.location.xml \
     frameworks/base/data/etc/android.hardware.location.gps.xml:system/etc/permissions/android.hardware.location.gps.xml \
     frameworks/base/data/etc/android.hardware.wifi.xml:system/etc/permissions/android.hardware.wifi.xml \
     frameworks/base/data/etc/android.hardware.sensor.proximity.xml:system/etc/permissions/android.hardware.sensor.proximity.xml \
     frameworks/base/data/etc/android.hardware.sensor.light.xml:system/etc/permissions/android.hardware.sensor.light.xml \
-    frameworks/base/data/etc/android.hardware.touchscreen.multitouch.distinct.xml:system/etc/permissions/android.hardware.touchscreen.multitouch.distinct.xml
+    frameworks/base/data/etc/android.hardware.touchscreen.multitouch.distinct.xml:system/etc/permissions/android.hardware.touchscreen.multitouch.distinct.xml \
+    frameworks/base/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml
 
 # Board-specific init
 PRODUCT_COPY_FILES += \
@@ -108,37 +111,71 @@ PRODUCT_COPY_FILES += \
     device/samsung/admire/AutoVolumeControl.txt:system/etc/AutoVolumeControl.txt \
     device/samsung/admire/AudioFilter.csv:system/etc/AudioFilter.csv \
     device/samsung/admire/vold.fstab:system/etc/vold.fstab \
-    #device/samsung/admire/media_profiles.xml:system/etc/media_profiles.xml 
+    device/samsung/admire/media_profiles.xml:system/etc/media_profiles.xml 
 
 # Property overrides
 PRODUCT_PROPERTY_OVERRIDES := \
     keyguard.no_require_sim=true \
     ro.com.android.dateformat=MM-dd-yyyy
 
+# CDMA stuff
 PRODUCT_PROPERTY_OVERRIDES += \
-    mobiledata.interfaces=pdp0,wlan0,gprs,ppp0 \
-    ro.telephony.ril_class=samsung \
-    wifi.interface=wlan0 \
-    wifi.supplicant_scan_interval=20 \
-    ro.com.android.dataroaming=false
+    ro.ril.def.agps.mode=2 \
+    ro.cdma.home.operator.numeric=311660 \
+    ro.cdma.home.operator.alpha=MetroPCS \
+    net.cdma.pppd.authtype=require-chap \
+    net.cdma.pppd.user=user[SPACE]MPCS \
+    net.cdma.datalinkinterface=/dev/ttyCDMA0 \
+    net.cdma.ppp.interface=ppp0 \
+    net.connectivity.type=CDMA1 \
+    net.interfaces.defaultroute=cdma \
+    mobiledata.interfaces=pdp0,wlan0,gprs,ppp0
 
-# screen density
+### TEST ###
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.ril.samsung_cdma=true \
+    ro.telephony.ril_class=samsung \
+    gsm.sim.operator.alpha=Metro PCS \
+    gsm.sim.operator.numeric=311660 \
+    gsm.sim.operator.iso-country=us \
+    gsm.operator.alpha=Metro PCS \
+    gsm.operator.numeric=311660 \
+    gsm.operator.iso-country=us
+
+# (Possibly) fix Samsung's fuckup
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.telephony.sends_barcount=1
+
+# Network and WiFi
+PRODUCT_PROPERTY_OVERRIDES += \
+    wifi.interface=wlan0 \
+    wifi.supplicant_scan_interval=20
+
+# Screen density
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.sf.lcd_density=160
 
 # XXX: We might enable precise GC data
-#PRODUCT_TAGS += dalvik.gc.type-precise
+PRODUCT_TAGS += dalvik.gc.type-precise
 
 # This should not be needed, but on-screen keyboard uses the wrong density without it.
 PRODUCT_PROPERTY_OVERRIDES += \
     qemu.sf.lcd_density=160
 
+# Google ClientBase
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.com.google.clientidbase=android-metropcs-us
+
+# Google location provider features
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.com.google.locationfeatures=1 \
+    ro.com.google.networklocation=1
+
+PRODUCT_PROPERTY_OVERRIDES += \
     ro.setupwizard.enable_bypass=1 \
     dalvik.vm.lockprof.threshold=500 \
     dalvik.vm.dexopt-flags=m=y \
-    dalvik.vm.heapsize=32m \
+    dalvik.vm.heapsize=24m \
     dalvik.vm.dexopt-data-only=1 \
     ro.opengles.version=131072 \
     ro.compcache.default=0

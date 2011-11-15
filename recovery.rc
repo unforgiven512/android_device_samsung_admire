@@ -1,28 +1,25 @@
-# recovery init.rc
+# init.rc [recovery] for Samsung Admire
+# (c) 2011 Gerad Munsch <gmunsch@unforgivendevelopment.com>
 
 on early-init
     start ueventd
 
 on init
-# export PATH /sbin:/bin
+    # Setup paths
     export PATH /sbin:/system/sbin:/system/bin:/system/xbin
     export ANDROID_ROOT /system
     export ANDROID_DATA /data
     export EXTERNAL_STORAGE /sdcard
 
-# insmod fsr/rfs modules
+    # Load drivers (kernel modules)
     insmod /lib/modules/fsr.ko
     insmod /lib/modules/fsr_stl.ko
     insmod /lib/modules/rfs_glue.ko
     insmod /lib/modules/rfs_fat.ko
-
-# Samsung Paramter driver
-    insmod /lib/modules/acc_cal_param.ko
     insmod /lib/modules/sec_param.ko
 
-#    symlink /system/etc /etc
-
-
+    # Setup filesystem structure
+    symlink /system/etc /etc
     mkdir /bin
     mkdir /sdcard
     mkdir /system
@@ -30,32 +27,22 @@ on init
     mkdir /cache
     mount /tmp /tmp tmpfs
 
-    mount rfs /dev/stl12 /system check=no
-
 on boot
-
+    # Basic network configuration
     ifup lo
     hostname localhost
     domainname localdomain
 
     class_start default
 
-    export PATH /sbin:/bin
-	chown system system /sbin/busybox
-
-service busybox /sbin/busybox --install -s
-    oneshot
-
-service console /system/bin/sh
-    console
-
+# Services and daemons
 service ueventd /sbin/ueventd
     critical
 
 service recovery /sbin/recovery
-    oneshot
 
 service adbd /sbin/adbd recovery
+    disabled
 
 on property:persist.service.adb.enable=1
     start adbd

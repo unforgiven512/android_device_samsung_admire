@@ -745,6 +745,10 @@ service wlan_tool /system/bin/wlan_tool
     disabled
     oneshot
 
+service iprenew_wlan0 /system/bin/dhcpcd -n
+    disabled
+    oneshot
+
 ### WIFI END ###
 
 ### BLUETOOTH START ###
