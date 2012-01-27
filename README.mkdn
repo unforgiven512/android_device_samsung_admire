@@ -1,0 +1,20 @@
+# CyanogenMod 9 for Samsung Admire #
+
+**NOTE: This readme is incomplete. It will be completed in due time.**
+
+This is a port of CyanogenMod 9 to the Samsung Admire. The Samsung Admire is a low-end Android device, found on multiple prepaid/budget CDMA carriers.
+
+## Build Info ##
+
+This section will contain information on how to build CyanogenMod 9 for the Samsung Admire from source.
+
+### Necessary Projects ###
+
+The following is a list of the projects necessary to add/override from the base CyanogenMod source to build, in the format of *project_name:branch_name*:
+
+* android_device_samsung_admire:ics
+* android_external_webrtc:ics-armv6
+* android_external_webkit:ics-armv6
+* android_external_v8:ics-armv6
+* android_frameworks_base:ics-admire
+* android_vendor_cm:ics-admire
